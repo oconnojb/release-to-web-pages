@@ -1,11 +1,9 @@
+<!-- Creates the machines - I used O'Connor names becasue I don't know Mohawk's machines -->
 <% Machine.populate %>
 <% machines = Machine.all %>
-<% i=0 %>
-<% rando = "hmm" %>
 
-
-
-<form action="submitted" method="post">
+<!-- Create the visible form for the webpage -->
+<form action="released" method="post">
 <h2><input type='checkbox' name='all_sb' id='all_sb'><label for='all_sb'> ALL SB MACHINES </label></input></h2>
 <input type='checkbox' name='all_sb_cutters' id='all_sb_cutters'><label for='all_sb_cutters'> ALL SB CUTTERS </label></input>
 <% machines.each do |machine| %>
@@ -46,6 +44,7 @@
 
 <input type="submit" />
 
+<!-- Javascript, handles the cascading nature of the checkboxes -->
 <script type="text/javascript">
   // set variables
   var all_sh_folders = document.getElementById('all_sh_folders');
@@ -54,11 +53,11 @@
   var all_sb_folders = document.getElementById('all_sb_folders');
   var all_sb_cutters = document.getElementById('all_sb_cutters');
   var all_sb = document.getElementById('all_sb');
-
   <% machines.each do |machine| %>
     <%= "var #{machine.id} = document.getElementById('#{machine.id}');" %>
   <% end %>
 
+  //functions to check the children boxes
   function checkSh(){
     if (all_sh.checked == true) {
       all_sh_cutters.checked = true;
@@ -119,33 +118,7 @@
     }
   }
 
-  // Tom a
-  // ted b
-  // Joe c
-  // john d
-  // Liz  e
-  // mary  f
-  // mark  g
-  // tommy h
-
-  // function checkSh(){
-  //   for(i=0; i<machines.length; i++){
-  //     if (all_sh.checked === true) {
-  //       <% machines.each_with_index do |machine, i| %>
-  //         <% if machine.location == 'SH' %>
-  //           <%= "#{machine.id}.checked = true;" %>
-  //         <% end %>
-  //       <% end %>
-  //     } else {
-  //       <% machines.each_with_index do |machine, i| %>
-  //         <% if machine.location == 'SH' %>
-  //           <%= "#{machine.id}.checked = false;" %>
-  //         <% end %>
-  //       <% end %>
-  //     }
-  //   }
-  // }
-
+  //event listeners that run the above functions
   all_sh.addEventListener('click', function() {
     checkSh();
     checkShCutters();
@@ -168,5 +141,4 @@
   all_sb_folders.addEventListener('click', function() {
     checkSbFolders();
   }, true);
-
 </script>

@@ -8,12 +8,12 @@ class Machine
     @@all
   end
 
-  def self.create(n, l, t, i)
+  def self.create(name, location, type, id)
     m = Machine.new
-    m.name = n
-    m.location = l
-    m.type = t
-    m.id = i
+    m.name = name
+    m.location = location
+    m.type = type
+    m.id = id
     @@all << m
   end
 
@@ -23,8 +23,8 @@ class Machine
     types = ['cutter', 'folder', 'cutter', 'folder', 'cutter', 'folder', 'cutter', 'folder']
     ids = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
-    names.each_with_index do |name, i|
-      Machine.create(name, locations[i], types[i], ids[i])
+    names.each_with_index do |name, index|
+      Machine.create(name, locations[index], types[index], ids[index])
     end
   end
 end

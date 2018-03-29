@@ -1,7 +1,8 @@
-<% params.each do |m, on| %>
+<!-- The checked boxes from the form are all passed to this page in params as a hash -->
+<% params.each do |machine_name, status| %>
 <ul>
-  <% if !m.include?('_') %>
-    <li><%= "#{m} has been released to web pages!" %></li>
+  <% if !machine_name.include?('_') %>
+    <li><%= "#{machine_name} has been released to web pages!" %></li>
   <% end %>
 </ul>
 <% end %>
