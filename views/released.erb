@@ -1,5 +1,7 @@
 <% params.each do |m, on| %>
 <ul>
-  <li><%= "#{m} has been released to web pages!" %></li>
+  <% if !m.include?('_') %>
+    <li><%= "#{m} has been released to web pages!" %></li>
+  <% end %>
 </ul>
 <% end %>

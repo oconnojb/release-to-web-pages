@@ -18,10 +18,10 @@ class Machine
   end
 
   def self.populate
-    names = ['Tom', 'Ted', 'Joe', 'John', 'Liz', 'Mary', 'Mark', 'Mot', 'Det', 'Oej', 'Nhoj', 'Zil', 'Yram', 'Kram']
-    locations = ['SB', 'SB', 'SH', 'SB', 'SH', 'SB', 'SH', 'SB', 'SB', 'SH', 'SB', 'SH', 'SB', 'SH']
-    types = ['cutter', 'cutter', 'cutter', 'cutter', 'cutter', 'cutter', 'cutter', 'folder', 'folder', 'folder', 'folder', 'folder', 'folder', 'folder' ]
-    ids = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n']
+    names = ['Tom', 'Ted', 'Joe', 'John', 'Liz', 'Mary', 'Mark', 'Tommy']
+    locations = ['SB', 'SB', 'SB', 'SB', 'SH', 'SH', 'SH', 'SH']
+    types = ['cutter', 'folder', 'cutter', 'folder', 'cutter', 'folder', 'cutter', 'folder']
+    ids = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
     names.each_with_index do |name, i|
       Machine.create(name, locations[i], types[i], ids[i])

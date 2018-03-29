@@ -20,7 +20,7 @@
 <% machines.each do |machine| %>
   <% if machine.location == "SB" %>
     <% if machine.type == "folder" %>
-      <li><%= "<input type='checkbox' name='#{machine.name}' id='#{machine.name}'><label for='#{machine.name}'> #{machine.name} </label></input>" %></li>
+      <li><%= "<input type='checkbox' name='#{machine.name}' id='#{machine.id}'><label for='#{machine.name}'> #{machine.name} </label></input>" %></li>
     <% end %>
   <% end %>
 <% end %>
@@ -30,7 +30,7 @@
 <% machines.each do |machine| %>
   <% if machine.location == "SH" %>
     <% if machine.type == "cutter" %>
-      <li><%= "<input type='checkbox' name='#{machine.name}' id='#{machine.name}'><label for='#{machine.name}'> #{machine.name} </label></input>" %></li>
+      <li><%= "<input type='checkbox' name='#{machine.name}' id='#{machine.id}'><label for='#{machine.name}'> #{machine.name} </label></input>" %></li>
     <% end %>
   <% end %>
 <% end %>
@@ -39,7 +39,7 @@
 <% machines.each do |machine| %>
   <% if machine.location == "SH" %>
     <% if machine.type == "folder" %>
-      <li><%= "<input type='checkbox' name='#{machine.name}' id='#{machine.name}'><label for='#{machine.name}'> #{machine.name} </label></input>" %></li>
+      <li><%= "<input type='checkbox' name='#{machine.name}' id='#{machine.id}'><label for='#{machine.name}'> #{machine.name} </label></input>" %></li>
     <% end %>
   <% end %>
 <% end %>
@@ -54,14 +54,79 @@
   var all_sb_folders = document.getElementById('all_sb_folders');
   var all_sb_cutters = document.getElementById('all_sb_cutters');
   var all_sb = document.getElementById('all_sb');
+
   <% machines.each do |machine| %>
     <%= "var #{machine.id} = document.getElementById('#{machine.id}');" %>
   <% end %>
 
-  function check(){
-    all_sh_cutters.checked = true
-    all_sh_folders.checked = true
+  function checkSh(){
+    if (all_sh.checked == true) {
+      all_sh_cutters.checked = true;
+      all_sh_folders.checked = true;
+    } else {
+      all_sh_cutters.checked = false;
+      all_sh_folders.checked = false;
+    }
   }
+
+  function checkSb(){
+    if (all_sb.checked == true) {
+      all_sb_cutters.checked = true;
+      all_sb_folders.checked = true;
+    } else {
+      all_sb_cutters.checked = false;
+      all_sb_folders.checked = false;
+    }
+  }
+
+  function checkShCutters(){
+    if (all_sh_cutters.checked == true) {
+      e.checked = true;
+      g.checked = true;
+    } else {
+      e.checked = false;
+      g.checked = false;
+    }
+  }
+
+  function checkShFolders(){
+    if (all_sh_folders.checked == true) {
+      f.checked = true;
+      h.checked = true;
+    } else {
+      f.checked = false;
+      h.checked = false;
+    }
+  }
+
+  function checkSbCutters(){
+    if (all_sb_cutters.checked == true) {
+      a.checked = true;
+      c.checked = true;
+    } else {
+      a.checked = false;
+      c.checked = false;
+    }
+  }
+
+  function checkSbFolders(){
+    if (all_sb_folders.checked == true) {
+      b.checked = true;
+      d.checked = true;
+    } else {
+      b.checked = false;
+      d.checked = false;
+    }
+  }
+
+  // Tom a
+  // ted b
+  // Joe c
+  // john d
+  // Liz  e
+  // mary  f
+  // mark  g
+  // tommy h
 
   // function checkSh(){
   //   for(i=0; i<machines.length; i++){
@@ -82,6 +147,26 @@
   // }
 
   all_sh.addEventListener('click', function() {
-  check();
+    checkSh();
+    checkShCutters();
+    checkShFolders();
   }, true);
+  all_sb.addEventListener('click', function() {
+    checkSb();
+    checkSbCutters();
+    checkSbFolders();
+  }, true);
+  all_sh_cutters.addEventListener('click', function() {
+    checkShCutters();
+  }, true);
+  all_sh_folders.addEventListener('click', function() {
+    checkShFolders();
+  }, true);
+  all_sb_cutters.addEventListener('click', function() {
+    checkSbCutters();
+  }, true);
+  all_sb_folders.addEventListener('click', function() {
+    checkSbFolders();
+  }, true);
+
 </script>
