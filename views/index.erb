@@ -1,0 +1,52 @@
+<% Machine.populate %>
+<% machines = Machine.all %>
+<% i=0 %>
+<% rando = "hmm" %>
+<form action="submitted" method="post">
+
+<!-- <ul>
+<% machines.each do |machine| %>
+  <li><%= "<input type='checkbox' name='#{machine.name}' id='#{machine.name}'><label for='#{machine.name}'> #{machine.name} </label></input>" %></li>
+<% end %>
+</ul>
+<br>
+<input type="submit" /> -->
+<h2>SB</h2>
+cutters
+<% machines.each do |machine| %>
+  <% if machine.location == "SB" %>
+    <% if machine.type == "cutter" %>
+      <li><%= "<input type='checkbox' name='#{machine.name}' id='#{machine.name}'><label for='#{machine.name}'> #{machine.name} </label></input>" %></li>
+    <% end %>
+  <% end %>
+<% end %>
+
+folders
+<% machines.each do |machine| %>
+  <% if machine.location == "SB" %>
+    <% if machine.type == "folder" %>
+      <li><%= "<input type='checkbox' name='#{machine.name}' id='#{machine.name}'><label for='#{machine.name}'> #{machine.name} </label></input>" %></li>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h2>SH</h2>
+cutters
+<% machines.each do |machine| %>
+  <% if machine.location == "SH" %>
+    <% if machine.type == "cutter" %>
+      <li><%= "<input type='checkbox' name='#{machine.name}' id='#{machine.name}'><label for='#{machine.name}'> #{machine.name} </label></input>" %></li>
+    <% end %>
+  <% end %>
+<% end %>
+
+SH - folders
+<% machines.each do |machine| %>
+  <% if machine.location == "SH" %>
+    <% if machine.type == "folder" %>
+      <li><%= "<input type='checkbox' name='#{machine.name}' id='#{machine.name}'><label for='#{machine.name}'> #{machine.name} </label></input>" %></li>
+    <% end %>
+  <% end %>
+<% end %>
+
+<input type="submit" />
